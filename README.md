@@ -30,7 +30,9 @@
   	"envData": {"PACKAGE_NAME": "Push Notification","SLACK_USERNAME": "<slackUsername>","SLACK_URL": "https://hooks.slack.com/services/<whateverTheEndOfYourSlackWebhookURIis>","SLACK_CHANNEL": "#<channelName>","GITHUB_USERNAME":"<githubUsername>","GITHUB_REPOSITORY": "<githubRepoName>","GITHUB_ACCESS_TOKEN": "<githubAccessToken>"}  
   }  
   ```
+  * ~ Note ~ : manifestPath can be set to either `runtimes/node`, `runtimes/swift`, `runtimes/php`, `runtimes/python` in order to change the runtime used for the message-ify-github-response source.
   * Make the request
+  * Go to the cloned github repo referenced by envData and run: `touch test.js`, `git add test.js`, `git commit -m "trigger slack message"`, `git push origin master`
 
 ## Troubleshooting  
   * Go to the git repository that you bound the openwhisk-github package to.
