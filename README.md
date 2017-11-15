@@ -16,6 +16,22 @@
   * `git commit -m "testing"`
   * `git push origin master`
 
+## Testing the Trigger / Actions
+  * Either using, CURL, postman, or another software of your choice do the following:
+  * Set the method to POST request and set the URL to be your wskdeploy endpoint
+  * Set `Content-Type` to `application/json` and if your endpoint requires authentication put it in the `Authorization` header.
+  * Set the `body` to:
+  ```
+  {  
+  	"gitUrl":"https://github.com/ibm-functions/blueprint-github-trigger-slack",  
+  	"manifestPath": "runtimes/node",  
+  	"wskApiHost": "<openwhisk api host>",  
+  	"wskAuth": "<user:pass for openwhisk host^>",  
+  	"envData": {"PACKAGE_NAME": "Push Notification","SLACK_USERNAME": "<slackUsername>","SLACK_URL": "https://hooks.slack.com/services/<whateverTheEndOfYourSlackWebhookURIis>","SLACK_CHANNEL": "#<channelName>","GITHUB_USERNAME":"<githubUsername>","GITHUB_REPOSITORY": "<githubRepoName>","GITHUB_ACCESS_TOKEN": "<githubAccessToken>"}  
+  }  
+  ```
+  * Make the request
+
 ## Troubleshooting  
   * Go to the git repository that you bound the openwhisk-github package to.
   * Click on settings
